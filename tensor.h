@@ -10,6 +10,7 @@ struct Tensor {
   std::vector<int> strides;
   Tensor(float* data, std::vector<int> shape);
   void printStrides();
+  float at(std::vector<int> indices);
 
 };
 

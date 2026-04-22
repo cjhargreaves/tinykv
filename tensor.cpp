@@ -16,10 +16,24 @@ Tensor::Tensor(float* new_data, std::vector<int> new_shape) : data(new_data), sh
 
 void Tensor::printStrides() {
   
-  for (int i = 0; i < strides.size() - 1; i++) {
+  for (int i = 0; i < strides.size(); i++) {
     std::cout << strides[i] << " ";
   }
-    
+
+  std::cout << std::endl;
+
+}
+
+float Tensor::at(std::vector<int> indices) {
+
+  int sum = 0;
+
+  for (int i = 0; i < indices.size(); i++) {
+    sum += indices[i] + strides[i];
+  }
+
+  return sum;
+
 
 }
 
