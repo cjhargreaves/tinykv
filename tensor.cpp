@@ -26,13 +26,13 @@ void Tensor::printStrides() {
 
 float Tensor::at(std::vector<int> indices) {
 
-  int sum = 0;
+  int offset = 0;
 
   for (int i = 0; i < indices.size(); i++) {
-    sum += indices[i] + strides[i];
+    offset += indices[i] * strides[i];
   }
 
-  return sum;
+  return data[offset];
 
 
 }
